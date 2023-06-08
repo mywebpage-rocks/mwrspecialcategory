@@ -70,6 +70,7 @@ class mwrspecialcategory extends Module
             'CMS_PAGE' => [
                 'type'    => 'radio',
                 'label'   => $this->l('CMS Pages'),
+                'col' => '4',
                 'desc'    => $this->l('Select redirection CMS page'),
                 'name'    => 'cms_pages',
                 'class' => 't',
@@ -332,7 +333,11 @@ class mwrspecialcategory extends Module
                 $form_values[$this->getConfigName($name)] = Configuration::get($this->getConfigName($name));
             }
             foreach ($languages as $lang) {
-                $form_values[$this->getConfigName($name)][$lang['id_lang']] = Configuration::get($this->getConfigName($name) . '_' . $lang['id_lang']);
+                if (isset($this->getConfigName($name)[$lang['id_lang']]) && $this->getConfigName($name)[$lang['id_lang']]) {
+                    if ($value = Configuration::get($this->getConfigName($name) . '_' . $lang['id_lang'])) {
+                        $form_values[$this->getConfigName($name)][$lang['id_lang']] = $value;
+                    }
+                }
             }
         }
         return $form_values;
