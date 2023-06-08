@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    public: true
+  mwrspecialcategory.repository.specialCategory:
+    class: 'PrestaShop\Module\mwrspecialcategory\Repository\SpecialCategoryRepository'
+    arguments:
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'
+
+
+services:
+  _defaults:
+    public: true
+  ps_demoextendsymfonyform.repository.reviewer:
+    class: 'PrestaShop\Module\mwrspecialcategory\Repository\ReviewerRepository'
+    arguments:
+      - '@doctrine.dbal.default_connection'
+      - '%database_prefix%'

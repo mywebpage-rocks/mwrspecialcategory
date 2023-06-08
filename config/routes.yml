@@ -1,0 +1,8 @@
+# @see https://devdocs.prestashop.com/1.7/modules/concepts/controllers/admin-controllers/#how-to-map-an-action-of-your-controller-to-a-uri
+mwrspecialcategory_toggle_is_special_category:
+  path: mwrspecialcategory/{categoryId}/toggle-is-special-category
+  methods: [POST]
+  defaults:
+    _controller: 'PrestaShop\Module\mwrspecialcategory\Controller\Admin\SpecialCategoryController::toggleIsSpecialCategoryAction'
+  requirements:
+    categoryId: \d+

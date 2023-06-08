@@ -1,0 +1,23 @@
+{
+  "name": "prestashop/mwrspecialcategory",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "Tomas Ilginis"
+    },
+    {
+      "name": "PrestaShop Core Team"
+    }
+  ],
+  "description": "Help developers to understand how to create module using Symfony hooks",
+  "autoload": {
+    "psr-4": {
+      "PrestaShop\\Module\\mwrspecialcategory\\": "src/"
+    }
+  },
+  "license": "MIT",
+  "type": "prestashop-module",
+  "config": {
+    "prepend-autoloader": false
+  }
+}
