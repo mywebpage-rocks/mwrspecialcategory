@@ -92,7 +92,8 @@ class mwrspecialcategory extends Module
             'actionCategoryGridQueryBuilderModifier',
             'actionCategoryFormBuilderModifier',
             'actionAfterCreateCategoryFormHandler',
-            'actionAfterUpdateCategoryFormHandler'
+            'actionAfterUpdateCategoryFormHandler',
+            'actionFrontControllerSetVariables'
         ];
         $this->ps_17_hooks = [];
         $this->ps_16_hooks = [];
@@ -537,6 +538,9 @@ class mwrspecialcategory extends Module
         $id_lang = $this->context->language->id;
 
         $redirect_urlId =  Configuration::get($this->getConfigName('CMS_PAGE'));
+        if (!$redirect_urlId) {
+            return false;
+        }
         $redirect_url = ($this->context->link->getCMSLink($redirect_urlId, null, $id_lang));
 
         if (!$redirect_url || ($redirect_url == $params['templateVars']['urls']['current_url'])) {
